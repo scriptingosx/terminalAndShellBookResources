@@ -1,0 +1,26 @@
+# template zshrc file
+
+# by Armin Briegel - Scripting OS X
+
+# template zshrc file to go with the examples in the book
+# 
+# "macOS Terminal and shell"
+# (link here)
+
+# you can either copy pieces of this file to your .zshrc
+# or use this as a template (move this file to the root of your home directory
+# and rename to .zshrc )
+
+# Permission is granted to use this code in any way you want.
+# Credit would be nice, but not obligatory.
+# Provided "as is", without warranty of any kind, express or implied.
+
+
+# uncomment for immediate visual feedback that this file is read correctly
+# echo "my .zshrc file"
+
+# ALIASES
+
+alias ll='ls -l'
+alias lll="ls -alhTOe@"
+
