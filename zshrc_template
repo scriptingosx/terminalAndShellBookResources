@@ -19,8 +19,103 @@
 # uncomment for immediate visual feedback that this file is read correctly
 # echo "my .zshrc file"
 
+
+# FUNCTIONS
+
+function xman {
+    open x-man-page://$1
+}
+
+
 # ALIASES
 
 alias ll='ls -l'
 alias lll="ls -alhTOe@"
+
+# override the standard `man` to use the `xman` function
+alias man=xman
+
+# you _could_ just name the function `man` for the same effect, but you can see this
+# override when listing aliases. It is helpful to have all configurations that override 
+# existing commands in the same place. Also, aliases are easier to bypass than functions.
+# i.e. `\man` will use the standard command, rather than the alias.
+
+
+# EDITOR
+
+# the EDITOR variable is used by some command lines tools, e.g. git, when editing 
+# text is part of a workflow.
+# Graphical text editors often have special flags that inform the application that
+# it is being launched as part of a CLI workflow
+
+# un-comment the line for your favored text editor
+
+# export EDITOR="open -f"              # Text Edit
+# export EDITOR="atom --wait"          # Atom
+# export EDITOR="bbedit -w --resume"   # BBEdit
+# export EDITOR=emacs                  # Emacs
+# export EDITOR=nano                   # nano
+# export EDITOR="subl -n -w"           # Sublime Text
+# export EDITOR="see --wait --resume"  # SubEthaEdit
+# export EDITOR="mate -w"              # TextMate
+# export EDITOR=vim                    # vim
+# export EDITOR="code --wait"          # Visual Studio Code
+# export EDITOR="xed --wait"           # Xcode
+
+
+# SHELL OPTIONS
+
+# Case-insensitive Globbing
+setopt nocaseglob
+
+# Auto CD
+setopt autocd
+
+# Correction
+setopt correct
+setopt correctall
+
+# documentation for zsh options: `man zshoptions`
+# or http://zsh.sourceforge.net/Doc/Release/Options.html#Options
+
+
+# HISTORY
+   
+# history file
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+HISTSIZE=20000    # lines remembered per session
+SAVEHIST=20000    # lines stored in history file
+
+# store more information (timestamp)
+setopt extended_history
+
+# shares history across multiple zsh sessions
+setopt share_history
+# append to history
+setopt append_history
+
+# expire duplicates first
+setopt hist_expire_dups_first 
+# do not store duplications, keep newest
+setopt hist_ignore_all_dups
+#ignore duplicates when searching
+setopt hist_find_no_dups
+# removes blank lines from history
+setopt hist_reduce_blanks
+
+# when using history expansion (!!, !$, etc.), present for confirmation/editing
+setopt hist_verify
+
+
+# COMPLETION
+
+# case insensitive path-completion
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+
+# partial completion suggestions
+zstyle ':completion:*' list-suffixes true
+zstyle ':completion:*' expand prefix suffix
+
+# load completion
+autoload -Uz compinit && compinit
 
