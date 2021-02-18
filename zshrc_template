@@ -4,12 +4,12 @@
 
 # template zshrc file to go with the examples in the book
 # 
-# "macOS Terminal and shell"
-# (link here)
+# "macOS Terminal and Shell"
+# https://books.apple.com/book/terminal-and-shell/id1550617226?mt=11&app=itunes&at=1001lpyX
 
 # you can either copy pieces of this file to your .zshrc
 # or use this as a template (move this file to the root of your home directory
-# and rename to .zshrc )
+# and rename to .zshrc) and then modify to suit your needs
 
 # Permission is granted to use this code in any way you want.
 # Credit would be nice, but not obligatory.
